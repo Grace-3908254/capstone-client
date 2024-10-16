@@ -1,0 +1,27 @@
+@use './mixins.scss' as *;
+@use './fonts.scss' as *;
+@use './variables.scss' as *;
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Klee One";
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body, header, footer, 
+div, section, form,
+h1, h2, h3, h4, p, 
+time, img, button {
+    margin: 0;
+    padding: 0;
+}
+
+button, input, textarea {
+    font-family: inherit;
+}
