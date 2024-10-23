@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<HomePage />} />
           <Route path="/home/:id" element={<SelectedItem />} />
-          <Route path="/home/add/:id" element={<AddItem />} />
+          <Route path="/home/add" element={<AddItem />} />
           <Route path="/home/remove/:id" element={<DeleteConfirmation />} />
           <Route path="/home/edit/:id" element={<EditItem />} />
           <Route path="/inactive" element={<RemovedItems />} />
