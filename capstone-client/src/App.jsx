@@ -6,6 +6,7 @@ import SelectedItem from "./pages/SelectedItem/SelectedItem.jsx"
 import AddItem from "./pages/AddItem/AddItem.jsx"
 import DeleteConfirmation from "./pages/DeleteConfirmation/DeleteConfirmation.jsx"
 import EditItem from "./pages/EditItem/EditItem.jsx"
+import RemovedItems from "./pages/RemovedItems/RemovedItems.jsx"
 
 function App() {
 
@@ -13,11 +14,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/home/:id" element={<SelectedItem />} />
-          <Route path="/home/add" element={<AddItem />} />
-          <Route path="/home/remove/:id" element={<DeleteConfirmation />} />
-          <Route path="/home/edit/:id" element={<EditItem />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:id" element={<SelectedItem />} />
+          <Route path="/add" element={<AddItem />} />
+          <Route path="/remove/:id" element={<DeleteConfirmation />} />
+          <Route path="/edit/:id" element={<EditItem />} />
           <Route path="/inactive" element={<RemovedItems />} />
         </Routes>
       </BrowserRouter>
