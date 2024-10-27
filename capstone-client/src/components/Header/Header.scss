@@ -7,8 +7,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $lighter-background;
-  border-bottom: solid $border-color;
+  background-color: $lighter-greenbackground;
+  border-bottom: solid $border-greencolor;
   &__logo {
     &-link:link,
     &-link:visited {
@@ -37,16 +37,16 @@
     }
 
     &-add {
-        background-color: $darker-background;
+        background-color: $darker-greenbackground;
         padding: 1rem;
         border-radius: 2rem;
-        border: solid $border-color;
+        border: solid $border-greencolor;
     }
     &-inactive {
-        background-color: $darker-background;
+        background-color: $darker-greenbackground;
         padding: 1rem;
         border-radius: 2rem;
-        border: solid $border-color;
+        border: solid $border-greencolor;
     }
   }
 }

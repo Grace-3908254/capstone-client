@@ -1,0 +1,45 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/fonts.scss";
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/global.scss" as *;
+
+.items {
+  background-color: #fffacd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  &__wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+  }
+  &__each {
+    background-color: $lighter-greenbackground;
+    margin: 3rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-nickname {
+        margin: 1rem;
+        font-size: 2.5rem;
+    }
+    &-img {
+        width: 20rem;
+        height: 25rem;
+        object-fit:cover;
+        border-radius: 2rem;
+    }
+    &-brandtype {
+        margin: 1rem;
+    }
+  }
+
+  &__link {
+    @include remove-link-styling;
+  }
+}

@@ -25,19 +25,19 @@ export default function ItemsDisplay() {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="items">
+      <div className="items__wrapper">
         {allItems?.map((currItem) => {
           return (
             <>
-              <Link to={`/${currItem.id}`}>
-                <div>
+              <Link className="items__link" to={`/${currItem.id}`}>
+                <div className="items__each">
+                  <p className="items__each-nickname">{currItem.nickname}</p>
                   <img
+                    className="items__each-img"
                     src={`http://localhost:8080/${currItem.photo}`}
-                    width="10px"
                   ></img>
-                  <p>{currItem.nickname}</p>
-                  <p>
+                  <p className="items__each-brandtype">
                     {currItem.brand}: {currItem.type}
                   </p>
                 </div>
@@ -46,7 +46,7 @@ export default function ItemsDisplay() {
           );
         })}
       </div>
-.    
+      .
     </div>
   );
 }
