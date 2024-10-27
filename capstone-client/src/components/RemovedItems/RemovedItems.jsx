@@ -2,8 +2,8 @@ import React from "react";
 import "./RemovedItems.scss";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Header from "../../components/Header/Header";
-import axios from 'axios';
+import axios from "axios";
+
 
 export default function RemovedItems() {
   const [allInactive, setAllInactive] = useState();
@@ -25,22 +25,23 @@ export default function RemovedItems() {
   }, []);
 
   return (
-    <div>
-      <Header />
-
-      <div>
+    <div className="items">
+      <div className="items__wrapper">
         {allInactive?.map((currItem) => {
           return (
             <>
-              <div>
-                <div>
-                  <img src={`http://localhost:8080/${currItem.photo}`}width="10px"></img>
-                  <p>{currItem.nickname}</p>
-                  <p>
+              <Link className="items__link" to={`/${currItem.id}`}>
+                <div className="items__each">
+                  <p className="items__each-nickname">{currItem.nickname}</p>
+                  <img
+                    className="items__each-img"
+                    src={`http://localhost:8080/${currItem.photo}`}
+                  ></img>
+                  <p className="items__each-brandtype">
                     {currItem.brand}: {currItem.type}
                   </p>
                 </div>
-              </div>
+              </Link>
             </>
           );
         })}

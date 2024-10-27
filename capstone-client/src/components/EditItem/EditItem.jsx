@@ -99,12 +99,12 @@ export default function EditItem() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log("Submit function called");
-  
+
     if (!validateForm()) {
       setError(true);
       return;
     }
-  
+
     try {
       const requestBody = {
         citizenship,
@@ -115,20 +115,26 @@ export default function EditItem() {
         size,
         birthdate,
         address,
-        serial_num: serialNum
+        serial_num: serialNum,
       };
-  
+
       console.log("Request body:", requestBody);
-  
-      const response = await axios.put(`http://localhost:8080/items/${itemId.id}`, requestBody);
-      
+
+      const response = await axios.put(
+        `http://localhost:8080/items/${itemId.id}`,
+        requestBody
+      );
+
       if (response.status === 200) {
         navigate(-1);
       } else {
         throw new Error("Failed to update item");
       }
     } catch (error) {
-      console.error("Unable to update item:", error.response ? error.response.data : error.message);
+      console.error(
+        "Unable to update item:",
+        error.response ? error.response.data : error.message
+      );
       setError(true);
     }
   };
@@ -138,14 +144,17 @@ export default function EditItem() {
   }
 
   return (
-    <div>
+    <div className="editItem">
       <form className="editItem__form" onSubmit={handleSubmit}>
-        <div>
-          <label className="editItem__form-label" htmlFor="citizenship">
+        <div className="editItem__form-citizenship">
+          <label
+            className="editItem__form-label editItem__form-citizenship-label"
+            htmlFor="citizenship"
+          >
             Citizenship:
           </label>
           <input
-            className={`editItem__form-input ${
+            className={` editItem__form-citizenship-input editItem__form-input ${
               formErrors.citizenship ? "editItem__form-input--error" : ""
             }`}
             name="citizenship"
@@ -159,20 +168,22 @@ export default function EditItem() {
           </FormError>
         </div>
 
-        <div>
-          <div>
-            <label className="editItem__form-label" htmlFor="photo"></label>
+        <div className="editItem__middle">
+          <div className="editItem__form-photo">
+            <label
+              className="editItem__form-photo-label editItem__form-label"
+              htmlFor="photo"
+            ></label>
             {photo && photo !== "" && (
               <img
                 src={`http://localhost:8080/${photo}`}
                 alt="Item"
                 className="editItem__form-photo-preview"
-                style={{ maxWidth: "200px", marginBottom: "10px" }}
               />
             )}
             <input
               type="file"
-              className={`editItem__form-input ${
+              className={`editItem__form-photo-input editItem__form-input ${
                 formErrors.photo ? "editItem__form-input--error" : ""
               }`}
               name="photo"
@@ -185,32 +196,52 @@ export default function EditItem() {
             </FormError>
           </div>
 
-          <div>
-            <div>
-              <label className="editItem__form-label" htmlFor="brand">
+          <div className="editItem__middle-wordsonly">
+            <div className="editItem__form-brand">
+              <label
+                className="editItem__form-brand-label editItem__form-label"
+                htmlFor="brand"
+              >
                 Brand:
               </label>
               <input
-                className={`editItem__form-input ${
+                className={`editItem__form-brand-input editItem__form-input ${
                   formErrors.brand ? "editItem__form-input--error" : ""
                 }`}
+                list="brandOptions"
                 name="brand"
                 id="brand"
                 placeholder="Brand"
                 onChange={handleChangeBrand}
                 value={brand}
               />
+              <datalist id="brandOptions">
+                <option value="Bunnies By The Bay" />
+                <option value="Bukowski Bears" />
+                <option value="Charlie Bears" />
+                <option value="Douglas" />
+                <option value="Gunt" />
+                <option value="Jellycat" />
+                <option value="Kaloo" />
+                <option value="Maileg" />
+                <option value="Moulin Roty" />
+                <option value="Mon ami" />
+                <option value="Steiff" />
+              </datalist>
               <FormError errorState={formErrors.brand}>
                 {formErrors.brand}
               </FormError>
             </div>
 
-            <div>
-              <label className="editItem__form-label" htmlFor="type">
+            <div className="editItem__form-type">
+              <label
+                className="editItem__form-type-label editItem__form-label"
+                htmlFor="type"
+              >
                 Type:
               </label>
               <input
-                className={`editItem__form-input ${
+                className={`editItem__form-type-input editItem__form-input ${
                   formErrors.type ? "editItem__form-input--error" : ""
                 }`}
                 name="type"
@@ -224,12 +255,15 @@ export default function EditItem() {
               </FormError>
             </div>
 
-            <div>
-              <label className="editItem__form-label" htmlFor="nickname">
+            <div className="editItem__form-nickname">
+              <label
+                className="editItem__form-nickname-label editItem__form-label"
+                htmlFor="nickname"
+              >
                 Nickname:
               </label>
               <input
-                className={`editItem__form-input ${
+                className={`editItem__form-nickname-input editItem__form-input ${
                   formErrors.nickname ? "editItem__form-input--error" : ""
                 }`}
                 name="nickname"
@@ -243,12 +277,15 @@ export default function EditItem() {
               </FormError>
             </div>
 
-            <div>
-              <label className="editItem__form-label" htmlFor="size">
+            <div className="editItem__form-size">
+              <label
+                className="editItem__form-size-label editItem__form-label"
+                htmlFor="size"
+              >
                 Size:
               </label>
               <input
-                className={`editItem__form-input ${
+                className={`editItem__form-size-input editItem__form-input ${
                   formErrors.size ? "editItem__form-input--error" : ""
                 }`}
                 name="size"
@@ -262,12 +299,15 @@ export default function EditItem() {
               </FormError>
             </div>
 
-            <div>
-              <label className="editItem__form-label" htmlFor="birthdate">
+            <div className="editItem__form-birthdate">
+              <label
+                className="editItem__form-birthdate-label editItem__form-label"
+                htmlFor="birthdate"
+              >
                 Birthdate:
               </label>
               <input
-                className={`editItem__form-input ${
+                className={`editItem__form-birthdate-input editItem__form-input ${
                   formErrors.birthdate ? "editItem__form-input--error" : ""
                 }`}
                 name="birthdate"
@@ -282,12 +322,15 @@ export default function EditItem() {
               </FormError>
             </div>
 
-            <div>
-              <label className="editItem__form-label" htmlFor="address">
+            <div className="editItem__form-address">
+              <label
+                className="editItem__form-address-label editItem__form-label"
+                htmlFor="address"
+              >
                 Address:
               </label>
               <input
-                className={`editItem__form-input ${
+                className={`editItem__form-address-input editItem__form-input ${
                   formErrors.address ? "editItem__form-input--error" : ""
                 }`}
                 name="address"
@@ -303,12 +346,15 @@ export default function EditItem() {
           </div>
         </div>
 
-        <div>
-          <label className="editItem__form-label" htmlFor="serial_num">
-            Serial Number
+        <div className="editItem__form-serialnum">
+          <label
+            className="editItem__form-serialnum-label editItem__form-label"
+            htmlFor="serial_num"
+          >
+            ID:
           </label>
           <input
-            className={`editItem__form-input ${
+            className={`editItem__form-serialnum-input editItem__form-input ${
               formErrors.serialNum ? "editItem__form-input--error" : ""
             }`}
             name="serial_num"
@@ -322,7 +368,7 @@ export default function EditItem() {
           </FormError>
         </div>
 
-        <div>
+        <div className="editItem__form-buttons">
           <button
             className="editItem__form-button editItem__form-cancel"
             type="button"

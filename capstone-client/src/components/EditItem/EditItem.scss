@@ -1,0 +1,100 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/fonts.scss";
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/global.scss" as *;
+
+html {
+  background-color: $lighter-yellowbackground;
+}
+
+.editItem {
+  margin: 0;
+  padding: 0;
+  background-color: $lighter-yellowbackground;
+
+  &__middle {
+    display: flex;
+    &-wordsonly {
+      color: black;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $lighter-greenbackground;
+    border-radius: 2rem;
+    font-size: 0.5rem;
+    margin: 3rem;
+    padding: 2rem;
+    border: solid $border-greencolor;
+
+    &-label {
+      margin-right: 0.5rem;
+    }
+    &-input {
+      width: 100%;
+      background-color: $darker-greenbackground;
+      border-radius: 2rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      margin-bottom: 1rem;
+    }
+
+    &-citizenship {
+      width: 100%;
+      justify-self: left;
+      &-input {
+        width: 80%;
+        background-color: $lighter-greenbackground;
+      }
+    }
+
+    &-photo {
+      width: 50%;
+      &-preview {
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+      }
+    }
+
+    // &-brand {
+    //   color: black;
+    // }
+
+    // &-type {
+    //   color: black;
+    // }
+
+    // &-nickname {
+    //   color: black;
+    // }
+
+    // &-size {
+    //   color: black;
+    // }
+
+    // &-birthdate {
+    //   color: black;
+    // }
+
+    // &-address {
+    //   color: black;
+    // }
+
+    &-serialnum {
+      width: 100%;
+      justify-self: left;
+      &-input {
+        width: 80%;
+        background-color: $lighter-greenbackground;
+      }
+    }
+
+    &-buttons {
+      color: black;
+    }
+  }
+}

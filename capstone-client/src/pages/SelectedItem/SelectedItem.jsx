@@ -6,6 +6,7 @@ import axios from "axios";
 import DeleteConfirmation from "../../components/DeleteConfirmation/DeleteConfirmation";
 import EditItem from "../../components/EditItem/EditItem";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer"
 
 export default function SelectedItem() {
   const [selectOne, setSelectOne] = useState();
@@ -55,6 +56,7 @@ export default function SelectedItem() {
           />
         )}
       </div>
+      <Footer />
     </div>
   );
 
