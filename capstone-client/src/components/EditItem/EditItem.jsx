@@ -154,7 +154,7 @@ export default function EditItem() {
             Citizenship:
           </label>
           <input
-            className={` editItem__form-citizenship-input editItem__form-input ${
+            className={`editItem__form-citizenship-input editItem__form-input ${
               formErrors.citizenship ? "editItem__form-input--error" : ""
             }`}
             name="citizenship"
