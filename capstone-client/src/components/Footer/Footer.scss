@@ -1,0 +1,27 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/fonts.scss";
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/global.scss" as *;
+
+.footer {
+    background-color: $lighter-greenbackground;
+    border-top: solid $border-greencolor;
+    padding: 3rem;
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        &-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        &-email, &-linkedin {
+            display: flex;
+            margin: 1rem 0;
+            &-name {
+                margin-right: 0.5rem;
+            }
+        }
+
+    }
+}
