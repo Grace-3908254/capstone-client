@@ -3,7 +3,7 @@ import "./EditItem.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import FormError from "../../components/FormError/FormError";
+import FormError from "../FormError/FormError";
 
 export default function EditItem() {
   const itemId = useParams();
@@ -33,8 +33,8 @@ export default function EditItem() {
       setSize(Items.size);
       setPhoto(Items.photo);
       setBirthdate(Items.birthdate);
-        const backendDate = new Date(Items.birthdate);
-        const formattedDate = backendDate.toISOString().split("T")[0];
+      const backendDate = new Date(Items.birthdate);
+      const formattedDate = backendDate.toISOString().split("T")[0];
       setBirthdate(formattedDate);
       setAddress(Items.address);
       setSerialNum(Items.serial_num);
@@ -164,7 +164,7 @@ export default function EditItem() {
             )}
             <input
               type="file"
-              className={`editItem__form-input-photo ${
+              className={`editItem__form-input ${
                 formErrors.photo ? "editItem__form-input--error" : ""
               }`}
               name="photo"

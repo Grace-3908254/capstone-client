@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import DeleteConfirmation from "../../components/DeleteConfirmation/DeleteConfirmation";
-import EditItem from "../EditItem/EditItem";
+import EditItem from "../../components/EditItem/EditItem";
 
 export default function SelectedItem() {
   const [selectOne, setSelectOne] = useState();
@@ -15,24 +15,24 @@ export default function SelectedItem() {
     setIsOpen(false);
   };
 
-    async function selectOneItem(id) {
-      try {
-        const response = await axios.get(`http://localhost:8080/items/${id}`);
+  async function selectOneItem(id) {
+    try {
+      const response = await axios.get(`http://localhost:8080/items/${id}`);
 
-        console.log(response);
-        setSelectOne(response.data);
-      } catch (error) {
-        console, error("Cannot find your fuzzy buddy", error);
-      }
+      console.log(response);
+      setSelectOne(response.data);
+    } catch (error) {
+      console, error("Cannot find your fuzzy buddy", error);
     }
+  }
 
-    useEffect(() => {
-      selectOneItem(itemId.id);
-    }, [itemId]);
+  useEffect(() => {
+    selectOneItem(itemId.id);
+  }, [itemId]);
 
-    if (!selectOne) {
-      return <div>loading...</div>;
-    }
+  if (!selectOne) {
+    return <div>loading...</div>;
+  }
 
   return (
     <div>
