@@ -21,6 +21,12 @@
             &-name {
                 margin-right: 0.5rem;
             }
+            &-link:link,
+            &-link:visited {
+                @include remove-link-styling;
+                text-decoration: underline;
+                cursor: pointer;
+            }
         }
 
     }

@@ -14,8 +14,10 @@ html {
 
   &__middle {
     display: flex;
+    align-items: center;
+    justify-content: center;
     &-wordsonly {
-      color: black;
+      width: 100%;
     }
   }
 
@@ -35,7 +37,6 @@ html {
     }
     &-input {
       width: 100%;
-      background-color: $darker-greenbackground;
       border-radius: 2rem;
       padding: 0.5rem 1rem;
       border: none;
@@ -52,11 +53,25 @@ html {
     }
 
     &-photo {
-      width: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       &-preview {
         width: 50%;
-        height: 50%;
         object-fit: cover;
+        border-radius: 2rem;
+      }
+      &-input {
+        display: none;
+      }
+      &-label {
+        margin: 1rem;
+        border: solid $border-greencolor;
+        background-color: $darker-greenbackground;
+
+        padding: 0.5rem 1rem;
       }
     }
 
@@ -94,7 +109,15 @@ html {
     }
 
     &-buttons {
-      color: black;
+      width: 100%;
+      display: flex;
+      justify-content: right;
+    }
+    &-button {
+        background-color: $darker-greenbackground;
+        border: solid $border-greencolor;
+        padding: 0.5rem 1rem;
+        margin-left: 2rem;
     }
   }
 }

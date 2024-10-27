@@ -170,10 +170,6 @@ export default function EditItem() {
 
         <div className="editItem__middle">
           <div className="editItem__form-photo">
-            <label
-              className="editItem__form-photo-label editItem__form-label"
-              htmlFor="photo"
-            ></label>
             {photo && photo !== "" && (
               <img
                 src={`http://localhost:8080/${photo}`}
@@ -181,6 +177,12 @@ export default function EditItem() {
                 className="editItem__form-photo-preview"
               />
             )}
+            <label
+              className="editItem__form-photo-label editItem__form-label"
+              htmlFor="photo"
+            >
+              Upload A New Photo
+            </label>
             <input
               type="file"
               className={`editItem__form-photo-input editItem__form-input ${
@@ -370,6 +372,13 @@ export default function EditItem() {
 
         <div className="editItem__form-buttons">
           <button
+            className="editItem__form-button editItem__form-save"
+            type="submit"
+          >
+            Save
+          </button>
+
+          <button
             className="editItem__form-button editItem__form-cancel"
             type="button"
             onClick={() => {
@@ -377,13 +386,6 @@ export default function EditItem() {
             }}
           >
             Cancel
-          </button>
-
-          <button
-            className="editItem__form-button editItem__form-save"
-            type="submit"
-          >
-            Save
           </button>
         </div>
       </form>
