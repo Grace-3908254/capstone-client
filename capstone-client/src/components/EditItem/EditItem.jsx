@@ -86,7 +86,7 @@ export default function EditItem() {
     if (type.trim() === "") newErrors.type = "Type is required.";
     if (nickname.trim() === "") newErrors.nickname = "Nickname is required.";
     if (size.trim() === "") newErrors.size = "Size is required.";
-    if (!photo && !existingPhoto) newErrors.photo = "Photo is required.";
+    if (!photo) newErrors.photo = "Photo is required.";
     if (birthdate.trim() === "") newErrors.birthdate = "Birthdate is required.";
     if (address.trim() === "") newErrors.address = "Address is required.";
     if (serialNum.trim() === "")
@@ -98,29 +98,37 @@ export default function EditItem() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("Submit function called");
+  
     if (!validateForm()) {
       setError(true);
       return;
     }
-
+  
     try {
       const requestBody = {
-        brand,
         citizenship,
+        photo,
+        brand,
         type,
         nickname,
         size,
-        photo,
         birthdate,
         address,
-        serial_num,
+        serial_num: serialNum
       };
-
-      await axios.put(`http://localhost:8080/items/${id}`, requestBody);
-      navigate(-1);
+  
+      console.log("Request body:", requestBody);
+  
+      const response = await axios.put(`http://localhost:8080/items/${itemId.id}`, requestBody);
+      
+      if (response.status === 200) {
+        navigate(-1);
+      } else {
+        throw new Error("Failed to update item");
+      }
     } catch (error) {
-      console.error("Unable to update item:", error);
+      console.error("Unable to update item:", error.response ? error.response.data : error.message);
       setError(true);
     }
   };
