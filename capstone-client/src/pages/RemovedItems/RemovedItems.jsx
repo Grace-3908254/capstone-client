@@ -34,7 +34,7 @@ export default function RemovedItems() {
             <>
               <div>
                 <div>
-                  <img src={currItem.photo}></img>
+                  <img src={`http://localhost:8080/${currItem.photo}`}width="10px"></img>
                   <p>{currItem.nickname}</p>
                   <p>
                     {currItem.brand}: {currItem.type}

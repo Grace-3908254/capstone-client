@@ -6,6 +6,10 @@ export default function Header() {
   return (
     <div>
       <Link to={"/"}>My Fuzzy Buddies</Link>
+      <section>
+        <Link to={"/add"}>Add A New Buddy</Link>
+        <Link to={"/inactive"}>Reminiscence</Link>
+      </section>
     </div>
   )
 }
