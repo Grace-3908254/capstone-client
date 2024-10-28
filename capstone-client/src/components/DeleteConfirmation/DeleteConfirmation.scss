@@ -1,0 +1,35 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/fonts.scss";
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/global.scss" as *;
+
+.modal {
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5rem;
+        padding: 5rem;
+        background-color: white;
+    }
+    &__confirm {
+        text-align: center;
+        font-size: 3rem;
+        margin: 2rem;
+    }
+    &__delete,
+    &__inactive, 
+    &__cancel {
+        margin-bottom: 0.5rem;
+        padding: 1.5rem;
+        border: none;
+        background-color: white;
+        &:hover {
+            background-color: #f2c6a6;
+            border-radius: 2rem;
+        }
+    }
+
+
+}

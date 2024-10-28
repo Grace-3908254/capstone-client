@@ -3,9 +3,9 @@ import "./ItemsDisplay.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import DeleteConfirmation from "../DeleteConfirmation/DeleteConfirmation";
 
 export default function ItemsDisplay() {
+ 
   const [allItems, setAllItems] = useState();
 
   async function getItems() {
@@ -46,7 +46,6 @@ export default function ItemsDisplay() {
           );
         })}
       </div>
-      .
     </div>
   );
 }

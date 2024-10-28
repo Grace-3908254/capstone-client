@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/fonts.scss";
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/global.scss" as *;
+
+.selected {
+    
+    &__remove {
+      display: flex;
+      justify-content: right; 
+      margin: 5rem; 
+      &-button {
+        background-color: #e68c4d;
+        color: #703810;
+        padding: 1.5rem;
+        border-radius: 50%;
+        border: solid #9c4e16;
+      }
+    }
+}

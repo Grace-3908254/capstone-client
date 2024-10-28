@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Modal from "react-modal";
 //for redirecting to RIP page 
+import "./DeleteConfirmation.scss"
 
 export default function DeleteConfirmation({ isOpen, closeModal, id }) {
   const navigate = useNavigate()
@@ -26,16 +27,19 @@ export default function DeleteConfirmation({ isOpen, closeModal, id }) {
   }
   
     return (
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        contentLabel="Confirmation Modal"
-      >
-        <h2>How do you want to say goodbye?</h2>
-        <button onClick={() => {deleteItem(id)}}>Delete forever</button>
-        <button onClick={() => {inactivateItem(id)}}>I would like to keep my missing/rehomed/destroyed buddy in reminiscence, RIP</button>
-        <button onClick={() => {closeModal()}}>Cancel</button>
-      </Modal>
+      <div className="modal">
+        <Modal
+          isOpen={isOpen}
+          onRequestClose={closeModal}
+          contentLabel="Confirmation Modal"
+          className="modal__wrap"
+        >
+          <h2 className='modal__confirm'>How do you want to say goodbye?</h2>
+          <button onClick={() => {inactivateItem(id)}} className='modal__inactive'>move my missing/rehomed/destroyed buddy in reminiscence, RIP</button>
+          <button onClick={() => {deleteItem(id)}} className='modal__delete'>delete forever</button>
+          <button onClick={() => {closeModal()}} className='modal__cancel'>cancel</button>
+        </Modal>
+      </div>
     );
   }
 

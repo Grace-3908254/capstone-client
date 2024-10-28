@@ -37,11 +37,11 @@ export default function SelectedItem() {
   }
 
   return (
-    <div>
+    <div className="selected">
       <Header />
       <EditItem />
-      <div>
-        <button
+      <div className="selected__remove">
+        <button className="selected__remove-button"
           onClick={() => {
             setIsOpen(true);
           }}
