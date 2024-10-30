@@ -15,10 +15,15 @@ export default function HomePage() {
     setSearchResults(results); // Update state with search results
   };
 
+  const handleClearSearch = () => {
+    setSearchResults(null);
+  };
+
+
   return (
     <div>
       <Header />
-      <Search onSearchResults={handleSearchResults} />
+      <Search onSearchResults={handleSearchResults} onClearSearch={handleClearSearch} />
       <SearchResult results={searchResults} />
       <ItemsDisplay />
       <Footer />

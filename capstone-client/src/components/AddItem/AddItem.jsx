@@ -3,7 +3,7 @@ import "./AddItem.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import holder from "../../assets/images/empty-headshot.avif"
+import holder from "../../assets/images/empty-headshot.avif";
 
 export default function AddItem() {
   // const [selectOne, setSelectOne] = useState();
@@ -15,6 +15,7 @@ export default function AddItem() {
   const [nickname, setNickname] = useState("");
   const [size, setSize] = useState("");
   const [photo, setPhoto] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [birthdate, setBirthdate] = useState("");
   const [address, setAddress] = useState("");
   const [serialNum, setSerialNum] = useState("");
@@ -116,11 +117,11 @@ export default function AddItem() {
 
         <div className="addItem__middle">
           <div className="addItem__form-photo">
-              <img
-                src={holder}
-                alt="Item"
-                className="addItem__form-photo-preview"
-              />
+            <img
+              src={preview ? preview : holder}
+              alt="Item"
+              className="addItem__form-photo-preview"
+            />
             <label
               className="addItem__form-photo-label  addItem__form-label"
               htmlFor="photo"
@@ -135,7 +136,10 @@ export default function AddItem() {
               name="photo"
               id="photo"
               accept="image/*"
-              onChange={(e) => setPhoto(e.target.files[0])}
+              onChange={(e) => {
+                setPhoto(e.target.files[0]);
+                setPreview(URL.createObjectURL(e.target.files[0]));
+              }}
             />
             {error && !photo && (
               <span className="error-message">This field is required</span>
@@ -144,7 +148,10 @@ export default function AddItem() {
 
           <div className="addItem__middle-wordsonly">
             <div className="addItem__form-brand">
-              <label className="addItem__form-brand-label addItem__form-label" htmlFor="brand">
+              <label
+                className="addItem__form-brand-label addItem__form-label"
+                htmlFor="brand"
+              >
                 Brand:
               </label>
               <input
@@ -178,7 +185,10 @@ export default function AddItem() {
             </div>
 
             <div className="addItem__form-type">
-              <label className="addItem__form-type-label addItem__form-label" htmlFor="type">
+              <label
+                className="addItem__form-type-label addItem__form-label"
+                htmlFor="type"
+              >
                 Type:
               </label>
               <input
@@ -197,7 +207,10 @@ export default function AddItem() {
             </div>
 
             <div className="addItem__form-nickname">
-              <label className="addItem__form-nickname-label addItem__form-label" htmlFor="nickname">
+              <label
+                className="addItem__form-nickname-label addItem__form-label"
+                htmlFor="nickname"
+              >
                 Nickname:
               </label>
               <input
@@ -216,7 +229,10 @@ export default function AddItem() {
             </div>
 
             <div className="addItem__form-size">
-              <label className="addItem__form-size-label addItem__form-label" htmlFor="size">
+              <label
+                className="addItem__form-size-label addItem__form-label"
+                htmlFor="size"
+              >
                 Size:
               </label>
               <input
@@ -235,7 +251,10 @@ export default function AddItem() {
             </div>
 
             <div className="addItem__form-birthdate">
-              <label className="addItem__form-birthdate-label addItem__form-label" htmlFor="birthdate">
+              <label
+                className="addItem__form-birthdate-label addItem__form-label"
+                htmlFor="birthdate"
+              >
                 Birthdate:
               </label>
               <input
@@ -276,7 +295,10 @@ export default function AddItem() {
         </div>
 
         <div className="addItem__form-serialnum">
-          <label className="addItem__form-serialnum-label addItem__form-label" htmlFor="serial_num">
+          <label
+            className="addItem__form-serialnum-label addItem__form-label"
+            htmlFor="serial_num"
+          >
             ID:
           </label>
           <input

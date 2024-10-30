@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Search.scss";
 
-export default function Search({ onSearchResults }) {
+export default function Search({ onSearchResults, onClearSearch }) {
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
+  const [clear, setClear] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,10 +16,18 @@ export default function Search({ onSearchResults }) {
       const data = await response.json();
       onSearchResults(data); // Pass results back to parent
       setError(""); // Clear previous errors
+      setClear(true);
     } catch (error) {
       console.error("Error fetching search results:", error);
       setError("Failed to fetch search results."); // Set error message
     }
+  };
+
+  const handleClear = () => {
+    setQuery("");
+    setError("");
+    onClearSearch(); // Call the parent's clear function
+    setClear(false);
   };
 
   return (
@@ -36,6 +45,8 @@ export default function Search({ onSearchResults }) {
         </button>
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
+
+      <button onClick={handleClear} className={clear ? "search__clear": "search__clear search__clear--none"}>clear results</button>
     </div>
   );
 }

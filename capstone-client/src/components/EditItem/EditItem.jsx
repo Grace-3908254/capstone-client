@@ -15,6 +15,7 @@ export default function EditItem() {
   const [nickname, setNickname] = useState();
   const [size, setSize] = useState();
   const [photo, setPhoto] = useState();
+  // const [preview, setPreview] = useState(null);
   const [birthdate, setBirthdate] = useState();
   const [address, setAddress] = useState();
   const [serialNum, setSerialNum] = useState();
@@ -69,6 +70,7 @@ export default function EditItem() {
       const reader = new FileReader();
       reader.onload = (e) => {
         setPhoto(e.target.result);
+        // setPreview(URL.createObjectURL(e.target.files[0]));
       };
       reader.readAsDataURL(file);
     }

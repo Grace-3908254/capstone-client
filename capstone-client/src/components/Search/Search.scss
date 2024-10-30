@@ -4,9 +4,9 @@
 @use "../../styles/partials/global.scss" as *;
 
 .search {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
   &-wrap {
     display: flex;
     justify-content: space-between;
@@ -24,5 +24,12 @@
     background-color: #eaccae;
     border: solid #eaccae;
     padding: 1rem;
+  }
+
+  &__clear {
+    display: inline;
+    &--none {
+      display: none;
+    }
   }
 }

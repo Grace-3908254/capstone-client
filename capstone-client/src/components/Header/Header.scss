@@ -29,24 +29,22 @@
     padding: 3rem;
     font-size: 2rem;
 
-    &-add:link,
-    &-add:visited,
-    &-inactive:link,
-    &-inactive:visited {
+    &-button:link,
+    &-button:visited {
       @include remove-link-styling;
     }
 
-    &-add {
-        background-color: $darker-greenbackground;
-        padding: 1rem;
-        border-radius: 2rem;
-        border: solid $border-greencolor;
-    }
-    &-inactive {
-        background-color: $darker-greenbackground;
-        padding: 1rem;
-        border-radius: 2rem;
-        border: solid $border-greencolor;
+    &-button {
+      background-color: $darker-greenbackground;
+      padding: 1rem;
+      border-radius: 2rem;
+      border: solid $border-greencolor;
+      transition: transform 250ms;
+      &:hover {
+        background-color: #396039;
+        color: #dfecdf;
+        transform: translateY(-10px);
+      }
     }
   }
 }

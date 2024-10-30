@@ -10,8 +10,8 @@ export default function Header() {
       </div>
 
       <section className="header__navbar">
-        <Link className="header__navbar-add" to={"/add"}>Add A New Buddy</Link>
-        <Link className="header__navbar-inactive" to={"/inactive"}>Reminiscence</Link>
+        <Link className="header__navbar-add header__navbar-button" to={"/add"}>Add A New Buddy</Link>
+        <Link className="header__navbar-inactive header__navbar-button" to={"/inactive"}>Reminiscence</Link>
       </section>
     </div>
   );
