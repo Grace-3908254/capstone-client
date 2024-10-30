@@ -222,7 +222,7 @@ export default function EditItem() {
                 <option value="Bukowski Bears" />
                 <option value="Charlie Bears" />
                 <option value="Douglas" />
-                <option value="Gunt" />
+                <option value="Gund" />
                 <option value="Jellycat" />
                 <option value="Kaloo" />
                 <option value="Maileg" />
