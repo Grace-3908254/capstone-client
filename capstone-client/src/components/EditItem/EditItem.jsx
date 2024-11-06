@@ -15,7 +15,7 @@ export default function EditItem() {
   const [nickname, setNickname] = useState();
   const [size, setSize] = useState();
   const [photo, setPhoto] = useState();
-  // const [preview, setPreview] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [birthdate, setBirthdate] = useState();
   const [address, setAddress] = useState();
   const [serialNum, setSerialNum] = useState();
@@ -59,6 +59,9 @@ export default function EditItem() {
   const handleChangePhoto = (event) => {
     const file = event.target.files[0];
     if (file) {
+      console.log(file)
+      setPhoto(file.name)
+      console.log(file.name)
       if (file.size > 5 * 1024 * 1024) {
         // 5MB limit
         setFormErrors({
@@ -69,8 +72,8 @@ export default function EditItem() {
       }
       const reader = new FileReader();
       reader.onload = (e) => {
-        setPhoto(e.target.result);
-        // setPreview(URL.createObjectURL(e.target.files[0]));
+        console.log(e.target)
+        setPreview(URL.createObjectURL(e.target.files[0]));
       };
       reader.readAsDataURL(file);
     }
@@ -174,7 +177,7 @@ export default function EditItem() {
           <div className="editItem__form-photo">
             {photo && photo !== "" && (
               <img
-                src={`http://localhost:8080/${photo}`}
+              src={preview ? preview : `http://localhost:8080/${photo}`}
                 alt="Item"
                 className="editItem__form-photo-preview"
               />

@@ -33,6 +33,9 @@ export default function Search({ onSearchResults, onClearSearch }) {
   return (
     <div className="search">
       <form onSubmit={handleSubmit} className="search_wrap">
+        <button type="submit" className="search__button">
+          Search
+        </button>
         <input
           type="text"
           value={query}
@@ -40,13 +43,18 @@ export default function Search({ onSearchResults, onClearSearch }) {
           placeholder="Search items..."
           className="search__input"
         />
-        <button type="submit" className="search__button">
-          Search
-        </button>
+
         {error && <p style={{ color: "red" }}>{error}</p>}
       </form>
 
-      <button onClick={handleClear} className={clear ? "search__clear": "search__clear search__clear--none"}>clear results</button>
+      <button
+        onClick={handleClear}
+        className={
+          clear ? "search__clear" : "search__clear search__clear--none"
+        }
+      >
+        clear results
+      </button>
     </div>
   );
 }

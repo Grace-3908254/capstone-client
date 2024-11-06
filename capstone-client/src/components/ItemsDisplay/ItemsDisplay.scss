@@ -25,24 +25,25 @@
     flex-direction: column;
     align-items: center;
     border-radius: 0.5rem;
-
+    transition: background-color 0.5s ease;
     &:hover {
       background-color: #f5e6d6;
       border: solid #8fbc8f;
-      border-width: 1rem;
+      border-width: 0.5rem;
+      
     }
     &-nickname {
-        margin: 1rem;
-        font-size: 2.5rem;
+      margin: 1rem;
+      font-size: 2.5rem;
     }
     &-img {
-        width: 20rem;
-        height: 25rem;
-        object-fit:cover;
-        border-radius: 2rem;
+      width: 20rem;
+      height: 25rem;
+      object-fit: cover;
+      border-radius: 2rem;
     }
     &-brandtype {
-        margin: 1rem;
+      margin: 1rem;
     }
   }
 
